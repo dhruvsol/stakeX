@@ -18,7 +18,9 @@ export function HomeScreen() {
 
   const handleDeposit = async () => {
     console.log(connection, "-cone");
-    const con = new Connection();
+    const con = new Connection(
+      "https://wispy-responsive-log.solana-mainnet.quiknode.pro/a415202e697413211ec3e11b2231c8187d248067/"
+    );
     // const con = window.xnft.solana.connection;
     // console.log(con);
     console.log(window.xnft.solana.publicKey, "--");
