@@ -6,3 +6,5 @@ export const BLAZESTAKE_POOL = new PublicKey(
 export const SOLPAY_API_ACTIVATION = new PublicKey(
   "7f18MLpvAp48ifA1B8q8FBdrGQhyt9u5Lku2VBYejzJL"
 );
+
+export const RPC_URL = "";
