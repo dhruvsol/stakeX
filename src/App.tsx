@@ -1,6 +1,7 @@
 import { registerRootComponent } from "expo";
 import { RecoilRoot } from "recoil";
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, View, StyleSheet } from "react-native";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -16,14 +17,30 @@ function TabNavigator() {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: "#e91e63",
+        tabBarActiveTintColor: "#FE3C00",
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          position: "absolute",
+          bottom: 20,
+          left: 20,
+          right: 20,
+          borderRadius: 10,
+          ...styles.shadow,
+        },
+      }}
+      sceneContainerStyle={{
+        backgroundColor: "#0E1826",
       }}
     >
       <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarLabel: "Home",
+          headerStyle: {
+            backgroundColor: "#0E1826",
+            borderBottomColor: "#0E1826",
+          },
+          tabBarLabel: "Homes",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
           ),
@@ -43,7 +60,18 @@ function TabNavigator() {
     </Tab.Navigator>
   );
 }
-
+const styles = StyleSheet.create({
+  shadow: {
+    shadowColor: "#181818",
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.5,
+    elevation: 10,
+  },
+});
 function App() {
   let [fontsLoaded] = useFonts({
     Inter_900Black,
